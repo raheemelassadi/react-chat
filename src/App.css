@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Subrayada&family=Montserrat:wght@200;400&display=swap');
+
 *,
 *:before,
 *:after {
@@ -21,19 +23,21 @@ input {
 .App {
   width: 100%;
   min-height: 100vh;
-  background-color: #1c2c4c;
-  color: #4c768d;
+  background-color: black;
+  color: red;
   padding-top: 60px;
 }
 
 /* navbar */
 .nav-bar {
+  cursor: crosshair;
+  font-family: 'Montserrat Subrayada', sans-serif;
   padding: 10px 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #4c768d;
-  color: #242443;
+  background-color: rgb(44, 41, 41);
+  color: white;
   height: 60px;
   position: fixed;
   left: 0;
@@ -50,61 +54,89 @@ input {
   width: auto;
 }
 .sign-out {
+  font-family: 'Montserrat', sans-serif;
   padding: 5px 10px;
   border-radius: 5px;
-  color: #88dded;
-  border: 1px solid #1c2c4c;
-  background-color: #1c2c4c;
+  color: white;
+  border: 1px solid red;
+  background-color: transparent;
   font-weight: 600;
 }
 
 /* welcome page */
 .welcome {
+  font-family: 'Montserrat', sans-serif;
   padding: 30px;
   text-align: center;
   margin-top: 40px;
-  color: #7cc5d9;
+  color: white
 }
+
+#chat {
+  border-width: 1px 1px 1px 0px; /* Only set the border for the bottom and right sides */
+  border-color: transparent transparent red red; /* Set the border color (black in this example) */
+  border-style: solid;
+  border-radius: 0 0 5px 0px;
+}
+
+#logo {
+  filter: grayscale(1);
+}
+
+.sign-in{
+  color: white;
+  font-size: 2rem;
+}
+
+#sign-in {
+  border-width: 0px 0 0 1px;
+  border-color: red; 
+  border-style: solid;
+}
+
 .welcome :is(h2, p, img) {
   margin-bottom: 20px;
 }
 
 /* chat component */
 .messages-wrapper {
+  font-family: 'Montserrat', sans-serif;
   padding: 30px;
   margin-bottom: 60px;
 }
 .chat-bubble {
   border-radius: 20px 20px 20px 0;
   padding: 15px;
-  background-color: #7cc5d9;
-  color: #1c2c4c;
+  background-color: transparent;
+  color: red;
   width: max-content;
   max-width: calc(100% - 50px);
-  box-shadow: -2px 2px 1px 1px #4c768d;
+  box-shadow: -2px 1px 1px 1px red;
   display: flex;
   align-items: flex-start;
   margin-bottom: 20px;
 }
 .chat-bubble.right {
   margin-left: auto;
-  border-radius: 20px 20px 0 20px;
-  background-color: #fff;
-  box-shadow: -2px 2px 1px 1px #88dded;
+  border-radius:20px 20px 0 20px;
+  background-color: black;
+  box-shadow: -1px 1px 0px 0px red;
 }
 .chat-bubble__left {
   width: 35px;
   height: 35px;
   border-radius: 50%;
   margin-right: 10px;
+  background-color: transparent;
 }
 .user-name {
-  font-weight: bold;
+  text-transform: capitalize;
   margin-bottom: 5px;
   font-size: 0.9rem;
-  color: #1c2c4c;
+  color: white;
 }
 .user-message {
+  color: white;
   word-break: break-all;
 }
 .message-time {
@@ -118,33 +150,70 @@ input {
   bottom: 0px;
   width: 100%;
   padding: 20px 30px;
-  background-color: #4c768d;
   display: flex;
 }
+
 .send-message > input {
   height: 40px;
   padding: 10px 10px;
   border-radius: 5px 0 0 5px;
   border: none;
   flex-grow: 1;
-  background-color: white;
-  color: #1c2c4c;
+  background-color: black;
+  color: white;
   font-size: 1rem;
+  transition: 0.8s;
+  position: relative;
+  transition: all .8s;
 }
+
+
+
+
 .send-message > input:placeholder {
-  color: #ddd;
+  color: #fab9b9;
 }
 .send-message > :is(input, button):focus {
   outline: none;
-  border-bottom: 1px solid #7cc5d9;
 }
+
+.send-message{
+  color: #0087ca;
+}
+
+.send-message::after{
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: red;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+
+.send-message:hover::after{
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.send-message::before{
+  position: relative;
+  top: 14px;
+  content: "||";
+  color: red;
+}
+
 .send-message > button {
   width: 70px;
   height: 40px;
   padding: 5px 10px;
   border-radius: 0 5px 5px 0;
   color: #242443;
-  border: 1px solid #7cc5d9;
-  background-color: #7cc5d9;
+  border: 1px solid white;
+  background-color: white;
   font-weight: 600;
 }

@@ -3,6 +3,7 @@ import GoogleSignin from "../img/googleimg.png";
 import { auth } from "../firebase";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
+
 const Welcome = () => {
   const googleSignIn = () => {
     const provider = new GoogleAuthProvider();
@@ -11,10 +12,11 @@ const Welcome = () => {
 
   return (
     <main className="welcome">
-      <h2>Welcome to React Chat.</h2>
-      <img src="/logo512.png" alt="ReactJs logo" width={50} height={50} />
-      <p>Sign in with Google to chat with with your fellow React Developers.</p>
+      <h2>Welcome to React <span id="chat">Chat</span></h2>
+      <img src="/logo512.png" id="logo" alt="ReactJs logo" width={50} height={50} />
+      <p id="sign-in">Sign in with Google to chat with with your fellow React Developers.</p>
       <button className="sign-in">
+        
         <img
           onClick={googleSignIn}
           src={GoogleSignin}
